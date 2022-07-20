@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extra-springsecurity5" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ホーム</title>
+</head>
+<body>
+  <h1>Home</h1>
+  <p>
+    ユーザID：<span sec:authentication="name"></span>
+  </p>
+  <p>
+    ロール：<span sec:authentication="principal.authorities"></span>
+  </p>
+  <p>
+    メールアドレス：<span sec:authentication="principal.mailAddress"></span>
+  </p>
+  <form method="post" th:action="@{/logout}">
+    <button type="submit">ログアウト</button>
+  </form>
+</body>
+</html>
